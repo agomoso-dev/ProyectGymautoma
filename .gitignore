@@ -1,0 +1,72 @@
+# Variables de entorno (ignorar .env, mantener .env.local versionado)
+.env
+
+# Logs y registros
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Backend (Python / Django)
+__pycache__/
+backend/adminmenu/migrations/
+*.py[cod]
+*$py.class
+local_settings.py
+# Base de datos de Django (SQLite)
+db.sqlite3
+db.sqlite3-journal
+# Entornos virtuales de Python
+# env/
+# venv/
+# .venv/
+# ENV/
+# env.bak/
+# venv.bak/
+# Cachés y artefactos de pruebas (Python)
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Frontend (Node / React)
+node_modules/
+build/
+dist/
+# Cachés y artefactos de Node.js
+.npm/
+.eslintcache
+.stylelintcache
+.yarn-integrity
+.cache/
+.parcel-cache/
+# Directorios de salida de pruebas y cobertura (Node)
+coverage/
+.nyc_output/
+*.lcov
+
+# Base de datos (PostgreSQL)
+/data/
+/pgdata/
+/postgres_data/
+
+# Docker (configuración local)
+docker-compose.override.yml
+
+# IDEs y archivos de sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+.*.swp
+.*.swo
+*~
+._*
+
+
