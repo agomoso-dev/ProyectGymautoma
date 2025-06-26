@@ -25,6 +25,7 @@ services:
     image: frontend_gymautoma_image
     build:
       context: ./frontend
+      dockerfile: Dockerfile.dev
     restart: unless-stopped
     volumes:
       - ./frontend:/app
@@ -54,20 +55,20 @@ services:
     networks:
       - gymautoma
       
-  # FastAPI app (modelo + API)
-  fastapi:
-    container_name: fastapi_gymautoma_app
-    build:
-      context: ./fastapi-app
-    image: docker-gymautoma-fastapi
-    environment:
-      - OLLAMA_SERVER_URL=http://ollama:11434
-    ports:
-      - "5005:5005"
-    depends_on:
-      - ollama
-    networks:
-      - gymautoma
+  # # FastAPI app (modelo + API)
+  # fastapi:
+  #   container_name: fastapi_gymautoma_app
+  #   build:
+  #     context: ./fastapi-app
+  #   image: docker-gymautoma-fastapi
+  #   environment:
+  #     - OLLAMA_SERVER_URL=http://ollama:11434
+  #   ports:
+  #     - "5005:5005"
+  #   depends_on:
+  #     - ollama
+  #   networks:
+  #     - gymautoma
 
     
 
