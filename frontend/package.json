@@ -1,0 +1,15 @@
+{
+  "name": "gymautoma-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for GymAutoma AI Training Assistant",
+  "private": true,
+  "scripts": {
+    "dev": "cd gymautoma-client && npm run dev",
+    "build": "cd gymautoma-client && npm run build",
+    "preview": "cd gymautoma-client && npm run preview",
+    "lint": "cd gymautoma-client && npm run lint"
+  },
+  "keywords": ["react", "vite", "gym", "ai", "training"],
+  "author": "",
+  "license": "ISC"
+}

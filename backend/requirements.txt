@@ -1,0 +1,26 @@
+# Framework principal
+Django>=4.0
+
+# Configuración de entorno
+django-environ
+
+# ORM / DB
+psycopg2-binary
+
+# Autenticación
+django-allauth
+
+# API REST
+djangorestframework
+
+python-dotenv
+
+dj-database-url
+
+Pillow
+
+requests
+
+ollama
+
+django-cors-headers
