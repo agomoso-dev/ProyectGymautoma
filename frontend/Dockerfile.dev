@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Crear directorio de trabajo
 WORKDIR /app
@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 3000
 
 # Comando para iniciar el servidor de desarrollo
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev", "--", "--host"]
