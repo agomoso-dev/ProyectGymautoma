@@ -55,26 +55,35 @@ services:
     networks:
       - gymautoma
       
-  # # FastAPI app (modelo + API)
-  # fastapi:
-  #   container_name: fastapi_gymautoma_app
-  #   build:
-  #     context: ./fastapi-app
-  #   image: docker-gymautoma-fastapi
-  #   environment:
-  #     - OLLAMA_SERVER_URL=http://ollama:11434
-  #   ports:
-  #     - "5005:5005"
-  #   depends_on:
-  #     - ollama
-  #   networks:
-  #     - gymautoma
+  # FastAPI app (modelo + API)
+  fastapi:
+    container_name: fastapi_gymautoma_app
+    build:
+      context: ./fastapi-app
+    image: docker-gymautoma-fastapi
+    environment:
+      - OLLAMA_SERVER_URL=http://ollama:11434
+    ports:
+      - "5005:5005"
+    depends_on:
+      - ollama
+    networks:
+      - gymautoma
 
-    
+  # Ollama 
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama_gymautoma_app
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - gymautoma  
 
 volumes:
   db_data:
-
+  ollama_data:
 networks:
   gymautoma:
     driver: bridge
