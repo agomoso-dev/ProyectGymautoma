@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Nutricion, PlanesNutricionales
 
-# Register your models here.
+admin.site.register(Nutricion)
+admin.site.register(PlanesNutricionales)
