@@ -43,7 +43,7 @@ class Entrenamientos(models.Model):
     orden = models.IntegerField(default=1)
     
     # Relación N:M con Ejercicios
-    ejercicios = models.ManyToManyField('Ejercicios', through='EntrenamientosEjercicios', related_name='entrenamientos')
+    ejercicios = models.ManyToManyField('exercises.Ejercicios', through='exercises.EntrenamientosEjercicios', related_name='entrenamientos')
     
     class Meta:
         verbose_name_plural = "Entrenamientos"

@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-
 # ==================== GRUPO 1: PERFIL Y CONFIGURACIÓN ====================
 
 class Objetivo(models.Model):
@@ -49,7 +48,7 @@ class Perfil(models.Model):
     
     # Relaciones N:1
     objetivo = models.ForeignKey(Objetivo, on_delete=models.SET_NULL, null=True, related_name='perfiles')
-    rutina = models.ForeignKey('Rutina', on_delete=models.SET_NULL, null=True, blank=True, related_name='perfiles')
+    rutina = models.ForeignKey('training.Rutina', on_delete=models.SET_NULL, null=True, blank=True, related_name='perfiles')       
     
     # Relación N:M con Estado
     estados = models.ManyToManyField(Estado, through='PerfilEstado', related_name='perfiles')
@@ -119,7 +118,7 @@ class LesionesRestricciones(models.Model):
     ])
     
     # Relación N:M con Entrenamientos
-    entrenamientos_afectados = models.ManyToManyField('Entrenamientos', through='LesionesEntrenamientos', related_name='lesiones')
+    entrenamientos_afectados = models.ManyToManyField('training.Entrenamientos', through='training.LesionesEntrenamientos', related_name='lesiones')
     
     class Meta:
         verbose_name_plural = "Lesiones y Restricciones"

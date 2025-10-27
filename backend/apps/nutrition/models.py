@@ -8,7 +8,7 @@ class Nutricion(models.Model):
     """Registro nutricional del perfil"""
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, related_name='registros_nutricion')
     fecha = models.DateField()
-    calorias_objetivo = models.IntegerField(help_text="Calorías diarias objetivo")
+    calorias_objetivo = models.IntegerField(default=0)
     calorias_consumidas = models.IntegerField(default=0)
     proteinas_gramos = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     carbohidratos_gramos = models.DecimalField(max_digits=6, decimal_places=2, default=0)

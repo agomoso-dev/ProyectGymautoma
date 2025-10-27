@@ -1,4 +1,4 @@
-FROM python:3.12.2
+FROM python:3.11-slim
 
 # Crear usuario
 RUN addgroup --system app && adduser --system --group app -u 1000
@@ -10,9 +10,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copiar el código del proyecto
-COPY ./gymautoma_core /app/gymautoma_core
-COPY manage.py /app/
+# Copiar todo el código del proyecto
+COPY . .
 
 # Script para esperar a que la base de datos esté lista
 COPY wait-for-it.sh /wait-for-it.sh
