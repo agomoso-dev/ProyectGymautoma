@@ -120,11 +120,6 @@ class EntrenamientosEjercicios(models.Model):
     tiempo_descanso_segundos = models.IntegerField(default=60)
     notas = models.TextField(blank=True)
 
-    class Meta:
-        verbose_name_plural = "Entrenamientos - Ejercicios"
-        ordering = ['entrenamiento', 'orden']
-        unique_together = ['entrenamiento', 'ejercicio']
-
     def __str__(self):
         return f"{self.entrenamiento.nombre} - {self.ejercicio.nombre}"
 
@@ -161,10 +156,6 @@ class EjerciciosEquipamiento(models.Model):
     def __str__(self):
         obligatorio = "Obligatorio" if self.es_obligatorio else "Opcional"
         return f"{self.ejercicio.nombre} - {self.equipamiento.nombre} ({obligatorio})"
-
-
-
-
 
 
 '''

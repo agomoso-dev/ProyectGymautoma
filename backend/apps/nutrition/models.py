@@ -3,7 +3,9 @@ from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 from apps.profile_config.models import Perfil
-
+'''
+@ ==================== Nutricion ====================
+'''
 class Nutricion(models.Model):
     """Registro nutricional del perfil"""
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, related_name='registros_nutricion')
@@ -16,14 +18,13 @@ class Nutricion(models.Model):
     agua_litros = models.DecimalField(max_digits=4, decimal_places=2, default=0)
     notas = models.TextField(blank=True)
     
-    class Meta:
-        verbose_name_plural = "Nutrición"
-        ordering = ['-fecha']
-        unique_together = ['perfil', 'fecha']
     
     def __str__(self):
         return f"Nutrición {self.perfil.nombre_completo} - {self.fecha}"
 
+'''
+@ ==================== Planes Nutricionales ====================
+'''
 
 class PlanesNutricionales(models.Model):
     """Planes nutricionales asociados a un registro de nutrición"""
@@ -43,8 +44,6 @@ class PlanesNutricionales(models.Model):
     fecha_fin = models.DateField()
     activo = models.BooleanField(default=True)
     
-    class Meta:
-        verbose_name_plural = "Planes Nutricionales"
-    
+
     def __str__(self):
         return f"{self.nombre} - {self.tipo_dieta}"
